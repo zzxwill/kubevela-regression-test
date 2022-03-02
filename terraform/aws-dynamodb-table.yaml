@@ -1,0 +1,26 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-dynamodb
+  annotations:
+    contributor: "Anoop"
+    sidecar.istio.io/inject: "false"
+spec:
+  components:
+    - name: anoop-dynamodb-tf-component
+      type: aws-dynamodb-table
+      properties:
+        name: "anoop-dynamodb-tf-component"
+        hash_key: "id"
+        attributes:
+          - name: "id"
+            type: "N"
+        writeConnectionSecretToRef:
+          name: anoop-dynamodb-connection
+          namespace: default
+  workflow:
+    steps:
+      - name: create-dynamodb
+        type: apply-component
+        properties:
+          component: anoop-dynamodb-tf-component
