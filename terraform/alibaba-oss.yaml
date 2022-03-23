@@ -1,14 +1,13 @@
 apiVersion: core.oam.dev/v1beta1
 kind: Application
 metadata:
-  name: app-aws-s3
+  name: app-alibaba-oss
 spec:
   components:
-    - name: sample-s3
-      type: aws-s3
+    - name: alibaba-oss
+      type: alibaba-oss
       properties:
-        bucket: vela-website-202110191745
+        bucket: vela-website-20220323-1928
         acl: private
-
         writeConnectionSecretToRef:
-          name: s3-conn
+          name: oss-conn

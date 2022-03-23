@@ -9,6 +9,7 @@ spec:
       properties:
         bucket: vela-website-20220224140953
         acl: private
+        region: us-east-2
 
         writeConnectionSecretToRef:
           name: s3-conn

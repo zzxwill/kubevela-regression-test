@@ -1,0 +1,13 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: app-alibaba-ack
+spec:
+  components:
+    - name: alibaba-ack
+      type: alibaba-ack
+      properties:
+        k8s_name_prefix: "development"
+        customRegion: cn-hongkong
+        writeConnectionSecretToRef:
+          name: alibaba-ack-conn

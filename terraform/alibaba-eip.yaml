@@ -1,0 +1,13 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: app-alibaba-eip
+spec:
+  components:
+    - name: alibaba-eip
+      type: alibaba-eip
+      properties:
+        name: dev
+        description: "An EIP provisioned by Terraform Controller"
+        writeConnectionSecretToRef:
+          name: eip-conn

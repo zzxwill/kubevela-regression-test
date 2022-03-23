@@ -1,13 +1,14 @@
 apiVersion: core.oam.dev/v1beta1
 kind: Application
 metadata:
-  name: app-sls-store-sample
+  name: app-alibaba-sls-store
 spec:
   components:
     - name: sample-sls-store
       type: alibaba-sls-store
       properties:
-        store_name: kubevela-1111
+        project_name: kubevela-p-20220323-1111-p
+        store_name: kubevela-s-20220323-1111
         store_retention_period: 30
         store_shard_count: 2
         store_max_split_shard_count: 2

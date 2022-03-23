@@ -1,0 +1,26 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: gw-rds-aurora
+spec:
+  components:
+    - name: test-rds
+      properties:
+        apply_immediately: true
+        create_db_subnet_group: false
+        create_monitoring_role: false
+        create_random_password: false
+        create_security_group: false
+        database_name: defaultdb
+        engine: aurora-postgresql
+        engine_version: "11.9"
+        instance_class: db.r5.large
+        instances:
+          one: {}
+        master_username: defaultuser
+        master_password: defaultpassword
+        name: test-rds
+        storage_encrypted: true
+        writeConnectionSecretToRef:
+          name: test-rds-secret
+      type: aws-rds-aurora

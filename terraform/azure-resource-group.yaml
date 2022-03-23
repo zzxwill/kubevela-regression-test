@@ -1,0 +1,14 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: app-resource-group
+spec:
+  components:
+    - name: mariadb
+      type: azure-resource-group
+      properties:
+        name: "dev"
+        location: "West Europe"
+        writeConnectionSecretToRef:
+          name: azure-resource-group-conn
+          namespace: vela-system

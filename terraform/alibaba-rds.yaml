@@ -1,7 +1,7 @@
 apiVersion: core.oam.dev/v1beta1
 kind: Application
 metadata:
-  name: app-rds-sample
+  name: app-alibaba-rds
 spec:
   components:
     - name: sample-db
